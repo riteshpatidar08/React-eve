@@ -1,53 +1,18 @@
-import './App.css';
-
-function Card(props) {
-  console.log(props.heading);
+function App() {
+  const arr = ['Grapes', 'Mango', 'Orange', 'Watermelon'];
   return (
-    <div className="flex flex-col gap-8">
-      <div className="mx-32 border rounded-xl p-4 border-[#9c9c9e] flex flex-col gap-3">
-        <h2 className="text-3xl font-bold  text-[#23272F]">{props.heading}</h2>
-        <h3 className="font-medium  text-[#9c9c9e]">December 5, 2024</h3>
-        <p className="font-medium">
-          A common use case in React apps is to perform a data mutation and then
-          update state in data mutation and then update response...
-        </p>
-      </div>
+    <div>
+      
+      {arr.map((fruit,index) => (
+        <p className="text-3xl font-bold">{`${index} ${fruit}`}</p>
+      ))}
+
+      {/* <p>{arr[0]}</p>
+    <p>{arr[1]}</p>
+    <p>{arr[2]}</p>
+    <p>{arr[3]}</p> */}
     </div>
   );
 }
 
-function App() {
-  return (
-    <main>
-      <div className="mx-32 my-20">
-        <h1 className="text-[40px] font-bold text-[#23272F]">React Blog</h1>
-        <p className="my-4 text-[#23272F] text-[20px] font-medium">
-          This blog is the official source for the updates from the React team.
-          Anything important, including release notes or deprecation notices,
-          will be posted here first. You can also follow the{' '}
-          <span className="text-[#087ea4]">@reactjs</span> account on Twitter,
-          but you won’t miss anything essential if you only read this blog.
-        </p>
-      </div>
-
-      {/* div for card */}
-
-      <div className="flex flex-col gap-4">
-        <Card heading="React v19" />
-        <Card heading="React Compiler Beta Release" />
-      </div>
-    </main>
-  );
-}
-
 export default App;
-
-// props => key = value
-
-//  <div className='mx-32 border rounded-xl p-4 border-[#9c9c9e] flex flex-col gap-3'>
-//   <h2 className='text-3xl font-bold  text-[#23272F]'>React Compiler Beta Release</h2>
-//   <h3 className='font-medium  text-[#9c9c9e]'>December 9, 2025</h3>
-//   <p className='font-medium'>A common use case in React apps is to perform a data mutation and then update state in data mutation and then update response...</p>
-//   </div>
-
-//NOTE PROPS => props are used to pass data in only one direction => FROM PARENT TO CHILD
