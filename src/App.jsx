@@ -1,16 +1,34 @@
+import { useState } from 'react';
 function App() {
-  const arr = ['Grapes', 'Mango', 'Orange', 'Watermelon'];
+  const [inputValue, setInputValue] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputValue);
+  };
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  console.log(inputValue);
+
   return (
     <div>
-      
-      {arr.map((fruit,index) => (
-        <p className="text-3xl font-bold">{`${index} ${fruit}`}</p>
-      ))}
-
-      {/* <p>{arr[0]}</p>
-    <p>{arr[1]}</p>
-    <p>{arr[2]}</p>
-    <p>{arr[3]}</p> */}
+      <form onSubmit={handleSubmit}>
+        <input
+          onChange={handleChange}
+          type="text"
+          name="text"
+          className="w-64 m-5 border border-black rounded-sm p-4"
+        />
+        <button
+          className="px-8 py-2 rounded-md bg-green-400 text-white"
+          type="submit"
+        >
+          Add
+        </button>
+      </form>
     </div>
   );
 }
