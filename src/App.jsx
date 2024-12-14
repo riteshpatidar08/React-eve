@@ -1,36 +1,34 @@
-import { useState } from 'react';
-function App() {
-  const [inputValue, setInputValue] = useState('');
+import { useEffect , useState } from "react"
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(inputValue);
-  };
 
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
-  };
+function App(){
+const [count ,setCount] = useState(0)
+  //without dependency
+  useEffect(()=>{
+ console.log('useEffect is always running')
+  })
 
-  console.log(inputValue);
+  //empty dependency
+  useEffect(()=>{
+console.log('useEffect only run once')
+  },[])
 
+  //with dependency
+  useEffect(()=>{
+    console.log('only run when count change')
+  },[count]) 
+
+
+  const handleClick = () => {
+    setCount(count + 1)
+  }
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          onChange={handleChange}
-          type="text"
-          name="text"
-          className="w-64 m-5 border border-black rounded-sm p-4"
-        />
-        <button
-          className="px-8 py-2 rounded-md bg-green-400 text-white"
-          type="submit"
-        >
-          Add
-        </button>
-      </form>
+<p className="ml-20">{count}</p>
+<button onClick={handleClick}>Increment</button>
     </div>
-  );
+  )
 }
 
-export default App;
+
+export default App

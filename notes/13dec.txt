@@ -1,0 +1,190 @@
+
+
+import { useState } from 'react';
+function App() {
+  const [inputValue, setInputValue] = useState('');
+const [formData , setFormData] = useState('')
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormData(inputValue)
+  };
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+ 
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          onChange={handleChange}
+          type="text"
+          name="text"
+          className="w-64 m-5 border border-black rounded-sm p-4"
+        />
+        <button
+          className="px-8 py-2 rounded-md bg-green-400 text-white"
+          type="submit"
+        >
+          Add
+        </button>
+      </form>
+      <p>{formData}</p>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+import { useState } from 'react';
+
+function App() {
+  const [fruits, setFruits] = useState(['mango', 'papaya', 'orange']);
+  const [newFruit, setNewFruit] = useState('');
+  console.log(fruits);
+  console.log(newFruit);
+
+  const handleChange = (e) => {
+    setNewFruit(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFruits([...fruits, newFruit]);
+  };
+  return (
+    <div className="m-10 p-10">
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="fruits">Enter Fruit</label>
+        <input
+          onChange={handleChange}
+          className="w-64 border-2 m-2 border-black rounded-lg p-2"
+          type="text"
+        />
+        <button
+          type="submit"
+          className="px-8 py-2 text-white font-semibold bg-red-500"
+        >
+          Add
+        </button>
+      </form>
+      {fruits.map((fruit) => (
+        <div className="font-semibold text-red-500">{fruit}</div>
+      ))}
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+import { useState } from 'react';
+
+function App() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  console.log(username, password);
+  const [data, setData] = useState({});
+  console.log(data);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setData({
+      username,
+      password,
+    });
+  };
+  return (
+    <div>
+      <div className="m-10 p-10">
+        <form onSubmit={handleSubmit}>
+          <input
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+            placeholder="enter username"
+            className="w-64 border-2 m-2 border-black rounded-lg p-2"
+            type="text"
+          />
+          <input
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            placeholder="enter password"
+            className="w-64 border-2 m-2 border-black rounded-lg p-2"
+            type="password"
+          />
+          <button
+            type="submit"
+            className="px-8 py-2 text-white font-semibold bg-red-500"
+          >
+            Add
+          </button>
+        </form>
+        <p>{JSON.stringify(data)}</p>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+import { useState } from 'react';
+
+function App() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  console.log(username, password);
+  const [data, setData] = useState({});
+  console.log(data);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setData({
+      username,
+      password,
+    });
+  };
+  return (
+    <div>
+      <div className="m-10 p-10">
+        <form onSubmit={handleSubmit}>
+          <input
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+            placeholder="enter username"
+            className="w-64 border-2 m-2 border-black rounded-lg p-2"
+            type="text"
+          />
+          <input
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            placeholder="enter password"
+            className="w-64 border-2 m-2 border-black rounded-lg p-2"
+            type="password"
+          />
+          <button
+            type="submit"
+            className="px-8 py-2 text-white font-semibold bg-red-500"
+          >
+            Add
+          </button>
+        </form>
+        <p>{JSON.stringify(data)}</p>
+      </div>
+    </div>
+  );
+}
+
+export default App;
