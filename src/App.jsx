@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 function App() {
@@ -13,13 +14,12 @@ function App() {
   }, []);
 
   return (
-    <div className="grid grid-cols-3 gap-4 m-10 p-10">
-      {product.map((product) => (
-        <div className="h-96 w-96  shadow-md">
-          <img className="w-full" src={product.image} />
-          <h1>{product.title}</h1>
-        </div>
+    <div className="">
+     <select >
+      {product.map((product)=>(
+        <option>{product.title}</option>
       ))}
+     </select>
     </div>
   );
 }
