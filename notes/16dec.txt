@@ -1,0 +1,36 @@
+import { useEffect, useState } from 'react';
+
+function App() {
+  const [count, setCount] = useState(0);
+  const [product ,setProduct] = useState([])
+  console.log(product)
+
+  //without dependency
+  // useEffect(() => {
+  //   console.log('useEffect is always running');
+  // });
+
+  //empty dependency
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then((res) => res.json())
+      .then((data) => setProduct(data));
+  }, []);
+
+  //with dependency
+  // useEffect(() => {
+  //   console.log('only run when count change');
+  // }, [count]);
+
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+  return (
+    <div>
+      <p className="ml-20">{count}</p>
+      <button onClick={handleClick}>Increment</button>
+    </div>
+  );
+}
+
+export default App;

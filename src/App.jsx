@@ -1,34 +1,27 @@
-import { useEffect , useState } from "react"
-
-
-function App(){
-const [count ,setCount] = useState(0)
-  //without dependency
-  useEffect(()=>{
- console.log('useEffect is always running')
-  })
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+function App() {
+  const [product, setProduct] = useState([]);
+  console.log(product);
 
   //empty dependency
-  useEffect(()=>{
-console.log('useEffect only run once')
-  },[])
+  useEffect(() => {
+    axios.get('https://fakestoreapi.com/products').then((data) => {
+      console.log(data.data);
+      setProduct(data.data);
+    });
+  }, []);
 
-  //with dependency
-  useEffect(()=>{
-    console.log('only run when count change')
-  },[count]) 
-
-
-  const handleClick = () => {
-    setCount(count + 1)
-  }
   return (
-    <div>
-<p className="ml-20">{count}</p>
-<button onClick={handleClick}>Increment</button>
+    <div className="grid grid-cols-3 gap-4 m-10 p-10">
+      {product.map((product) => (
+        <div className="h-96 w-96  shadow-md">
+          <img className="w-full" src={product.image} />
+          <h1>{product.title}</h1>
+        </div>
+      ))}
     </div>
-  )
+  );
 }
 
-
-export default App
+export default App;
