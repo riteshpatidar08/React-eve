@@ -1,0 +1,45 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+function App() {
+  const [countries, setCountries] = useState([]);
+  const [countryName, setCountryName] = useState('');
+  const [singleCountry, setSingleCountry] = useState([]);
+
+  //empty dependency
+  useEffect(() => {
+    axios.get('https://restcountries.com/v3.1/all').then((data) => {
+      console.log(data);
+      setCountries(data.data);
+    });
+  }, []);
+
+  //NOTE - useEffect fetching single country data
+  useEffect(() => {
+    axios
+      .get(`https://restcountries.com/v3.1/name/${countryName}`)
+      .then((data) => {
+        console.log('countrydata', data);
+        setSingleCountry(data.data);
+      });
+  }, [countryName]);
+
+  const handleChange = (e) => {
+    setCountryName(e.target.value);
+  };
+  console.log(countryName);
+
+  return (
+    <div className="">
+      <select onChange={handleChange}>
+        <option>Select Country</option>
+        {countries.map((country) => (
+          <option>{country.name.common}</option>
+        ))}
+      </select>
+
+      <div>{JSON.stringify(singleCountry)}</div>
+    </div>
+  );
+}
+
+export default App;

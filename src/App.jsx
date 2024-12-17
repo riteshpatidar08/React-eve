@@ -1,25 +1,18 @@
-
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
+import AboutPage from './pages/AboutPage';
+import HomePage from './pages/HomePage';
+import BlogPage from './pages/BlogPage';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 function App() {
-  const [product, setProduct] = useState([]);
-  console.log(product);
-
-  //empty dependency
-  useEffect(() => {
-    axios.get('https://fakestoreapi.com/products').then((data) => {
-      console.log(data.data);
-      setProduct(data.data);
-    });
-  }, []);
-
   return (
-    <div className="">
-     <select >
-      {product.map((product)=>(
-        <option>{product.title}</option>
-      ))}
-     </select>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blogs" element={<BlogPage />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
     </div>
   );
 }
