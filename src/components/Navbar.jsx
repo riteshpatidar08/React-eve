@@ -11,7 +11,7 @@ function Navbar() {
             <span className="text-2xl font-semibold text-[#f84525]">Wing</span>{' '}
           </h1>
         </div>
-        <nav className="flex gap-10 text-2xl font-semibold">
+        <nav className="flex gap-10 text-lg font-semibold">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/blogs">Blogs</Link>
