@@ -6,8 +6,9 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import BlogPostPage from './pages/BlogPostPage';
 import { useState } from 'react';
+import NotFound from './components/NotFound';
 function App() {
-  
+
   const [post, setPost] = useState([]);
 
   return (
@@ -25,6 +26,8 @@ function App() {
 
 
         <Route path="/about" element={<AboutPage />} />
+
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
     </div>
   );

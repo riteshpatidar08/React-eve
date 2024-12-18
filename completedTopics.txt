@@ -1,2 +1,5 @@
 //NOTE JSX and HTML COMPARISON , COMPONENT ,PROPS
-//NOTE List Rendering
+//NOTE List Rendering , condition rendering ,
+//NOTE useEffect , useState
+//NOTE form handling 
+//NOTE react router dom => basic routing , dynamic routing , notfound route , programmatic navigation , Link
