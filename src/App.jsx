@@ -7,13 +7,14 @@ import Navbar from './components/Navbar';
 import BlogPostPage from './pages/BlogPostPage';
 import { useState } from 'react';
 import NotFound from './components/NotFound';
+import CardLayout from './components/CardLayout';
 function App() {
-
   const [post, setPost] = useState([]);
 
   return (
     <div>
       <Navbar />
+      <CardLayout/>
       <Routes>
         <Route path="/" element={<HomePage />} />
 
@@ -24,10 +25,9 @@ function App() {
 
         <Route path="/blogs/:id" element={<BlogPostPage post={post} />} />
 
-
         <Route path="/about" element={<AboutPage />} />
 
-        <Route path='*' element={<NotFound/>}/>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
