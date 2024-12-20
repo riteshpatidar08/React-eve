@@ -8,16 +8,17 @@ import BlogPostPage from './pages/BlogPostPage';
 import { useState } from 'react';
 import NotFound from './components/NotFound';
 import CardLayout from './components/CardLayout';
+import UserReducerPage from './pages/UserReducerPage';
 function App() {
   const [post, setPost] = useState([]);
 
   return (
     <div>
       <Navbar />
-      <CardLayout/>
+    
       <Routes>
         <Route path="/" element={<HomePage />} />
-
+        <Route path="/useReducer" element={<UserReducerPage />} />
         <Route
           path="/blogs"
           element={<BlogPage post={post} setPost={setPost} />}
