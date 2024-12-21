@@ -9,6 +9,7 @@ import { useState } from 'react';
 import NotFound from './components/NotFound';
 import CardLayout from './components/CardLayout';
 import UserReducerPage from './pages/UserReducerPage';
+import FetchDataReducer from './pages/FetchDataReducer';
 function App() {
   const [post, setPost] = useState([]);
 
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/useReducer" element={<UserReducerPage />} />
+        <Route path='/apireducer' element={<FetchDataReducer/>}/>
         <Route
           path="/blogs"
           element={<BlogPage post={post} setPost={setPost} />}

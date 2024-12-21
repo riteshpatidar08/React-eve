@@ -17,6 +17,7 @@ function Navbar() {
           <Link to="/blogs">Blogs</Link>
           <Link to='/products'>Product</Link>
           <Link to="/useReducer">Use Reducer</Link>
+          <Link to="/apireducer">Api Reducer</Link>
         </nav>
       </header>
     </div>
