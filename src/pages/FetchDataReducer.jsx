@@ -16,17 +16,17 @@ function FetchDataReducer() {
   //   return {data:null,error:null , loading:true}
   //  return {error:null, loading:false ,data:[]}
 
-  function reducer(state, action) {
+  function reducer(prevState, action) {
     if (action.type === 'Loading') {
-      return { ...state, loading: true };
+      return { ...prevState, loading: true };
     } else if (action.type === 'Success') {
-      return { ...state, loading: false, data: action.payload };
+      return { ...prevState, loading: false, data: action.payload };
     } else if (action.type === 'Error') {
-      return { ...state, loading: false, error: action.payload };
+      return { ...prevState, loading: false, error: action.payload };
     }
   }
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [currentState, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,13 +46,13 @@ function FetchDataReducer() {
 
   return (
     <div>
-      {state.loading && (
+      {currentState.loading && (
         <div className="flex h-screen justify-center items-center">
           <HashLoader />
         </div>
       )}
-      <p>{JSON.stringify(state.data)}</p>
-      <p>{state.error}</p>
+      <p>{JSON.stringify(currentState.data)}</p>
+      <p>{currentState.error}</p>
     </div>
   );
 }
