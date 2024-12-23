@@ -20,7 +20,7 @@ function LoginPage() {
         <input
           onChange={handleChange}
           type="text"
-          id='login'
+          id="login"
           name="email"
           value={data.email}
         />
@@ -28,7 +28,7 @@ function LoginPage() {
         <input
           onChange={handleChange}
           type="password"
-          id='password'
+          id="password"
           name="password"
           value={data.password}
         />

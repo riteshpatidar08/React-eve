@@ -11,6 +11,7 @@ import CardLayout from './components/CardLayout';
 import UserReducerPage from './pages/UserReducerPage';
 import FetchDataReducer from './pages/FetchDataReducer';
 import LoginPage from './pages/LoginPage'
+import Register from './pages/Register';
 function App() {
 
   const [post, setPost] = useState([]);
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path='/login' element={<LoginPage/>}/>
+        <Route path='/register' element={<Register/>} />
         <Route path="/useReducer" element={<UserReducerPage />} />
         <Route path="/apireducer" element={<FetchDataReducer />} />
         <Route

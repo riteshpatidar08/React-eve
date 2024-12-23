@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer utilities{
+    .btn {
+        @apply border  border-red-500 rounded-sm p-2 
+    }
+}
