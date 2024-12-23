@@ -7,7 +7,7 @@ function BlogPage({ post, setPost }) {
   console.log(post);
 
   const [data, loading] = useFetch(
-    'https://jsonplaceholder.typicode.com/posts?_limit=10'
+    'https://jsonplaceholder.typicode.com/posts'
   );
 
   console.log(data);

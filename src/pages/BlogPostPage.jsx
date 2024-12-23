@@ -10,7 +10,7 @@ function BlogPostPage({ post }) {
   });
 
   console.log(filterOutput);
-  
+
   return (
     <div>
       <h1>{filterOutput[0].body}</h1>

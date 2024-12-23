@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+
 function useFetch(url) {
-  console.log(url);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -25,3 +25,8 @@ function useFetch(url) {
 }
 
 export default useFetch;
+
+// useState(0);
+// useEffect(()=>{},[])
+// useContext(contextname);
+// useReducer(reducer,initialState)
